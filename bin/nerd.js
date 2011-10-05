@@ -172,7 +172,7 @@ function createApplicationAt(path) {
     });
 		
 		mkdir(path + '/app/controllers');
-		write(path + '/app/views/controllers/appliction_controller.js', app_controller);
+		write(path + '/app/controllers/application_controller.js', app_controller);
 		
 		mkdir(path + '/app/models');
 		
