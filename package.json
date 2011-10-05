@@ -1,6 +1,6 @@
 {
   "author": "John Butler <johnnypez@gmail.com>",
-  "name": "nerd.js",
+  "name": "nerd",
   "description": "A node.js framework that should make sense to rails developers.",
   "version": "0.0.3",
   "repository": {
