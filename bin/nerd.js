@@ -10,11 +10,11 @@ _ = require("underscore");
 
 program
   .version(nerd.version)
-	.options('-a --app', 'create new application')
-	.options('-c --controller', 'create new controller')
+	.option('-a --app <name>', 'create new application')
+	.option('-c --controller <name>', 'create new controller(s)')
   .parse(process.argv);
 
-var path = program.args.shift() || '.';
+var path = program.app || '.';
 
 program.template = "mustache";
 program.css = null;
@@ -135,13 +135,14 @@ if(program.app){
 	  });
 	})(path);
 }
-
-if(program.controller){
-	_.each(program.controller.split(","), function(controller){
-		mkdir(path + '/app/views/' + controller);
-		write(path + '/app/views/' + controller + "index.html.mu", default_controller_index);
-		write(path + '/app/views/controllers/' + controller + '_controller.js', default_controller);
-	});
+else if(program.controller){
+	(function createController(controllers){
+		_.each(controllers, function(controller){
+			mkdir(path + '/app/views/' + controller);
+			write(path + '/app/views/' + controller + "/index.html.mu", default_controller_index);
+			write(path + '/app/controllers/' + controller + '_controller.js', default_controller);
+		});
+	})(program.controller.split(","))
 }
 
 /**
@@ -197,7 +198,7 @@ function createApplicationAt(path) {
 
 		write(path + '/Procfile', procfile);
     write(path + '/package.json', json);
-    write(path + '/server.js', app);
+    write(path + '/server.js', server);
 		write(path + '/.gitignore', "npm_modules");
   });
 }

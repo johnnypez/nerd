@@ -14,9 +14,9 @@ $ nerd -a test_app
 $ cd test_app
 ```
 
-Create a controller
+Create a controller or two
 ```
-$ nerd -c home
+$ nerd -c home,profile
 ```
 
 Edit server.js to set your default_route
