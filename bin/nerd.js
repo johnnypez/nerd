@@ -19,7 +19,7 @@ var path = program.app || '.';
 program.template = "mustache";
 program.css = null;
 
-var procfile = ["web: node server.js","dev: node server.js NODE_ENV=development"].join("\n");
+var procfile = ["web: node server.js","dev: NODE_ENV=development node server.js"].join("\n");
 
 var server = [
 	'require("nerd");',
