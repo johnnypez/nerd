@@ -57,6 +57,7 @@ var app_layout = [
 '		 <link rel="stylesheet" href="stylesheets/style.css" />',
 '  </head>',
 '  <body>',
+'    <h1>Nerd</h1>',
 '    {{{yield}}}',
 '  </body>',
 '</html>',
