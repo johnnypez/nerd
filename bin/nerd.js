@@ -9,7 +9,7 @@ fs = require('fs'),
 _ = require("underscore");
 
 program
-  .version(express.version)
+  .version(nerd.version)
 	.options('-a --app', 'create new application')
 	.options('-c --controller', 'create new controller')
   .parse(process.argv);
