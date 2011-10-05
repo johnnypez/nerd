@@ -22,13 +22,16 @@ $ cd test_app
 ```
 
 Create a controller or two
+
 ```
 $ nerd -c home,profile
 ```
 
 Edit server.js to set your default_route
+then start your server
+
 ```
-$ node server.js
+$ NODE_ENV=development node server.js
 ```
 
 Or if you have foreman installed
