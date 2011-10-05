@@ -135,12 +135,17 @@ if(program.app){
 	  });
 	})(path);
 }
-else if(program.controller){
+
+if(program.controller){
 	(function createController(controllers){
 		_.each(controllers, function(controller){
-			mkdir(path + '/app/views/' + controller);
-			write(path + '/app/views/' + controller + "/index.html.mu", default_controller_index);
-			write(path + '/app/controllers/' + controller + '_controller.js', default_controller);
+			mkdir(path + '/app/views/' + controller, function(){
+				write(path + '/app/views/' + controller + "/index.html.mu", default_controller_index);
+			});
+			
+			mkdir(path + '/app/controllers' , function(){
+				write(path + '/app/controllers/' + controller + '_controller.js', default_controller);
+			});
 		});
 	})(program.controller.split(","))
 }
@@ -171,8 +176,9 @@ function createApplicationAt(path) {
       }
     });
 		
-		mkdir(path + '/app/controllers');
-		write(path + '/app/controllers/application_controller.js', app_controller);
+		mkdir(path + '/app/controllers', function(){
+			write(path + '/app/controllers/application_controller.js', app_controller);
+		});
 		
 		mkdir(path + '/app/models');
 		
