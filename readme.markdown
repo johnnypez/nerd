@@ -1,8 +1,15 @@
 #Nerd
+####A framework for node.js that aims to follow Rails-like conventions.
 
-A framework for node.js built by a frustrated Rails developer.
-Very early stages.
-Just has Controllers and Controller/Action routing.
+I'm Rails developer that is getting sick of the whole Node V Rails argument,
+I think that they both have their own uses. Neither is a replacement for the other.
+Also Node needs a mature easy to use framework before developers like myself and many others will take notice.
+ 
+I'm pretty much using this project as a learning exercise in node.js.
+It's in very early stages.
+
+Just has Controllers and controller/action routing.
+Templating via Mustache supports layouts and views.
 
 ##Create an app
 

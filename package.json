@@ -4,7 +4,7 @@
   "description": "A node.js framework that should make sense to rails developers.",
   "version": "0.0.3",
   "repository": {
-    "url": ""
+    "url": "https://github.com/johnnypez/nerd"
   },
   "main": "index.js",
   "engines": {
