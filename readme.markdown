@@ -40,3 +40,30 @@ Or if you have foreman installed
 $ foreman start dev
 ```
 
+###Rendering from a Controller
+
+You must always eventually call ```this.render()``` in your controller actions.
+
+Calling ```this.render()``` alone will render the view inside the current layout, passing the ```this.locals``` object
+as the context for the Mustache rendering engine.
+
+You can also render json:
+
+```
+var foo = {key: "value"}
+this.render({json: foo});
+```
+
+and you can render plain text:
+
+```
+var str = "lorem ipsum dolor";
+this.render({text: str});
+```
+
+####Other supported arguments:
+
+```
+this.render({content_type: "text/html", status: 404});
+```
+
