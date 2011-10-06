@@ -22,26 +22,25 @@ program.css = null;
 var procfile = ["web: node server.js","dev: NODE_ENV=development node server.js"].join("\n");
 
 var server = [
-	'require("nerd");',
-	'nerd.boot(__dirname, function(){',
-	'  var server = connect(connect.bodyParser(), connect.cookieParser(), connect.query(), connect.favicon(), connect.static(\'./public\'));',
-	'  var port = process.env.NODE_ENV == \'development\' ? 3000 : 80;',
-	'//nerd.default_route = {controller: "home", action: "index"};',
-	'  server.use(nerd.router);',
-	'  server.listen(port);',
-	'});',
+'var nerd = require("nerd");',
+'nerd.boot(__dirname, function(server, connect){',
+'	var port = process.env.NODE_ENV == \'development\' ? 3000 : 80;',
+'	nerd.default_route = {controller: "home", action: "index"};',
+'	server.use(nerd.router);',
+'	server.listen(port);',
+'});',
 ].join("\n");
 
 var app_controller = [
-'require(\'nerd\');',
-'exports.base = nerd.controller.extend({',
+'var nerd = require(\'nerd\');',
+'module.exports = exports = nerd.controller.subclass({',
 '	layout: "application"',
 '});',
 ].join("\n");
 
 var default_controller = [
 'var application_controller = require("./application_controller");',
-'exports.base = application_controller.base.extend({',
+'module.exports = exports = application_controller.subclass({',
 '	index:function(){',
 '		this.locals.foo = "bar";',
 '		this.render();',
