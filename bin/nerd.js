@@ -210,7 +210,7 @@ function createApplicationAt(path) {
 		write(path + '/Procfile', procfile);
     write(path + '/package.json', json);
     write(path + '/server.js', server);
-		write(path + '/.gitignore', "npm_modules");
+		write(path + '/.gitignore', "node_modules");
   });
 }
 
