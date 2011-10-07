@@ -26,7 +26,11 @@ var procfile = [
 
 var server = [
 'var nerd = require("nerd");',
-'nerd.boot(__dirname, function(server, connect){',
+'var config = {',
+'	root: __dirname,',
+'	secret: \'_'+program.app+'_session_secret\'',
+'}',
+'nerd.boot(config, function(server, connect){',
 '	var port = process.env.PORT || 3000',
 '	nerd.default_route = {controller: "home", action: "index"};',
 '	server.use(nerd.router);',
