@@ -24,7 +24,7 @@ var procfile = ["web: node server.js","dev: NODE_ENV=development node server.js"
 var server = [
 'var nerd = require("nerd");',
 'nerd.boot(__dirname, function(server, connect){',
-'	var port = process.env.NODE_ENV == \'development\' ? 3000 : 80;',
+'	var port = process.env.PORT || 3000',
 '	nerd.default_route = {controller: "home", action: "index"};',
 '	server.use(nerd.router);',
 '	server.listen(port);',
