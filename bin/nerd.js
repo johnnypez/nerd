@@ -47,7 +47,7 @@ var default_controller = [
 'var application_controller = require("./application_controller");',
 'module.exports = exports = application_controller.subclass({',
 '	index:function(){',
-'		this.locals.foo = "bar";',
+'		this.view.foo = "bar";',
 '		this.render();',
 '	}	',
 '});',
