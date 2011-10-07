@@ -2,7 +2,7 @@
   "author": "John Butler <johnnypez@gmail.com>",
   "name": "nerd",
   "description": "A node.js framework that should make sense to rails developers.",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "repository": {
     "url": "https://github.com/johnnypez/nerd"
   },
@@ -20,7 +20,8 @@
 		"commander": "0.0.4",
 		"mkdirp": "0.0.7"
 	},
-  "devDependencies": {},
+  "devDependencies": {
+	},
 	"bin":{
 		"nerd":"./bin/nerd.js"
 	}
