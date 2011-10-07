@@ -19,7 +19,10 @@ var path = program.app || '.';
 program.template = "mustache";
 program.css = null;
 
-var procfile = ["web: node server.js","dev: NODE_ENV=development node server.js"].join("\n");
+var procfile = [
+	"web: node server.js",
+	"dev: dev: export PORT=4400 && export NODE_ENV=development && node server.js"
+].join("\n");
 
 var server = [
 'var nerd = require("nerd");',
@@ -28,7 +31,7 @@ var server = [
 '	nerd.default_route = {controller: "home", action: "index"};',
 '	server.use(nerd.router);',
 '	server.listen(port, function(){',
-'		console.log("server up on port: " + port);',
+'		console.log(process.env.NODE_ENV + " server up on port: " + port);',
 '	});',
 '});',
 ].join("\n");
