@@ -16,8 +16,8 @@ program
 
 var path = program.app || '.';
 
-program.template = "mustache";
 program.css = null;
+program.template = "parrot"
 
 var procfile = [
 	"web: node server.js",
@@ -62,16 +62,16 @@ var app_layout = [
 '<html>',
 '  <head>',
 '    <title>Nerd</title>',
-'		 <link rel="stylesheet" href="/stylesheets/style.css" />',
+'		 <%= stylesheet_link_tag(\'style\') %>',
 '  </head>',
 '  <body>',
 '    <h1>Nerd</h1>',
-'    {{{yield}}}',
+'    <%= yield %>',
 '  </body>',
 '</html>',
 ].join("\n");
 
-var default_controller_index = "<h2>{{foo}}</h2>";
+var default_controller_index = "<h2><%= foo %></h2>";
 
 
 var css = [
@@ -149,7 +149,7 @@ if(program.controller){
 	(function createController(controllers){
 		_.each(controllers, function(controller){
 			mkdir(path + '/app/views/' + controller, function(){
-				write(path + '/app/views/' + controller + "/index.html.mu", default_controller_index);
+				write(path + '/app/views/' + controller + "/index.html.js", default_controller_index);
 			});
 			
 			mkdir(path + '/app/controllers' , function(){
@@ -193,8 +193,8 @@ function createApplicationAt(path) {
 		
     mkdir(path + '/app/views/layouts', function(){
       switch (program.template) {
-        case 'mustache':
-          write(path + '/app/views/layouts/application.html.mu', app_layout);
+        case 'parrot':
+          write(path + '/app/views/layouts/application.html.js', app_layout);
           break;
       }
     });
