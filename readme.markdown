@@ -1,15 +1,32 @@
 #Nerd
-####A framework for node.js that aims to follow Rails-like conventions.
+####A node.js framework for Rails people
 
-I'm Rails developer that is getting sick of the whole Node V Rails argument,
-I think that they both have their own uses. Neither is a replacement for the other.
-Also Node needs a mature easy to use framework before developers like myself and many others will take notice.
- 
-I'm pretty much using this project as a learning exercise in node.js.
-It's in very early stages.
+This started out as a learning exercise in Node.js. I was getting pretty sick of the whole Rails v Node argument.
+I always think that argument is like comparing apples and oranges. Rails developers love the power of the framework and
+the productivity boost you get from using it. So far I haven't seen an equivalent for Node. As there are some advantages
+to using Node depending on your project, I wanted to see what I could do to lower the barrier to entry.
 
-Just has Controllers and controller/action routing.
-Templating via Mustache supports layouts and views.
+So I have started to build out this framework to provide a familiar environment for rails developers. The app structure is pretty much the same.
+The controllers are structured in a similar way.
+
+I'm providing some of the global helpers you're familiar with in your views like stylesheet_link_tag, javascript_include_tag, image_tag, tag and content_tag.
+The global helpers need to be expanded on. The tricky ones are ones like form_tag where in rails you would pass a block. In javascript this gets messy. I'm open to suggestions.
+I'll get around to adding helpers for each controller too.
+
+Templating is flexible and pluggable.
+The default templating engine is Parrot which is quite like ejs.
+https://github.com/ollym/parrot
+
+I have rolled in support for ejs and mustache. You only need to change your template extensions to .html.ejs or .html.mu
+You can mix it up if you like.
+
+Layouts are supported. Just place the yield variable wherever you want your view content to be placed. I've supported this in parrot, ejs and mu.
+
+Routing is simple controller/action based for the moment. I'll be coming back to that.
+
+I have no structure for models in place yet either. I'm thinking about Backbone but haven't had time to evaluate properly.
+
+As of Oct 10th 2011 / A weeks worth of evenings have gone into this. I'm still getting to grips with Node. If you see any issues, gotchas, or potential please shout!
 
 ##Create an app
 
@@ -44,8 +61,8 @@ $ foreman start dev
 
 You must always eventually call ```this.render()``` in your controller actions.
 
-Calling ```this.render()``` alone will render the view inside the current layout, passing the ```this.locals``` object
-as the context for the Mustache rendering engine.
+Calling ```this.render()``` alone will render the view inside the current layout, passing the ```this.view``` object
+as the context for the template engine.
 
 You can also render json:
 
