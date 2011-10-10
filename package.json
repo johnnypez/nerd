@@ -23,7 +23,8 @@
 		"path": ">=0.4.9",
 		"commander": "0.0.4",
 		"mkdirp": "0.0.7",
-		"colors": "0.5.1"
+		"colors": "0.5.1",
+		"inflector":"0.0.1"
 	},
   "devDependencies": {
 	},
