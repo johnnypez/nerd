@@ -21,7 +21,7 @@ program.template = "parrot"
 
 var procfile = [
 	"web: node server.js",
-	"dev: dev: export PORT=4400 && export NODE_ENV=development && node server.js"
+	"dev: export PORT=4400 && export NODE_ENV=development && node server.js"
 ].join("\n");
 
 var server = [
