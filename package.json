@@ -2,7 +2,7 @@
   "author": "John Butler <johnnypez@gmail.com>",
   "name": "nerd",
   "description": "A node.js framework that should make sense to rails developers.",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "repository": {
     "url": "https://github.com/johnnypez/nerd"
   },

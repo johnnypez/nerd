@@ -26,11 +26,13 @@ var procfile = [
 
 var server = [
 'var nerd = require("nerd");',
-'var config = {',
+'nerd.configure(\'defaults\',{',
 '	root: __dirname,',
-'	secret: \'_'+program.app+'_session_secret\'',
-'}',
-'nerd.boot(config, function(server, connect){',
+'	secret: \'_session_secret\'',
+'});',
+'nerd.configure(\'development\',{});',
+'nerd.configure(\'production\',{});',
+'nerd.boot(function(server, connect){',
 '	var port = process.env.PORT || 3000',
 '	nerd.default_route = {controller: "home", action: "index"};',
 '	server.use(nerd.router(function(map){',
@@ -38,7 +40,7 @@ var server = [
 '		map.match("/:controller/:action");',
 '	}));',
 '	server.listen(port, function(){',
-'		console.log(process.env.NODE_ENV + " server up on port: " + port);',
+'		console.log(process.env.NODE_ENV + " server up on port: " + port, "\nconfig: ", nerd.config);',
 '	});',
 '});',
 ].join("\n");
